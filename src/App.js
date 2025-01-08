@@ -1,5 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
+import Business from './Components/Business';
+import BusinessList from './Components/BusinessList';
 
 function App() {
   return (
@@ -18,6 +20,8 @@ function App() {
           Learn React
         </a>
       </header>
+      <Business />
+      <BusinessList />
     </div>
   );
 }
