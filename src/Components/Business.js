@@ -1,7 +1,7 @@
 import React from 'react';
 
 const business = {
-    image:"src/img/pexels-chan_walrus-941861.jpg",
+    image:"/img/pexels-chan_walrus-941861.jpg",
     name:"Jocelyn's Fine Kitchen",
     address:"Home Street 55",
     city:"Berlin",
