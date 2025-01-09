@@ -9,7 +9,7 @@ const business = {
     zipcode:"12345",
     category:"Tapas",
     rating:4.9,
-    rewiewCount:25,
+    rewiewCount:25
 }
 
 function Business () {
@@ -31,4 +31,3 @@ function Business () {
 }
 
 export default Business;
-export {business};
