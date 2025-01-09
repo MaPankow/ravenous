@@ -1,11 +1,11 @@
 import React from 'react';
-import Business from './Business';
+import Business, {business} from './Business';
 
 function BusinessList() {
     const businesses = [];
-    businesses.push(Business);
+    businesses.push(business.name);
     const businessList = businesses.map(business => <li>{business}</li>);
-    return <ul>businessList</ul>;
+    return <ul>{businessList}</ul>;
 }
 
 export default BusinessList;

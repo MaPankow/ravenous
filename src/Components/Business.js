@@ -31,3 +31,4 @@ function Business () {
 }
 
 export default Business;
+export {business};
