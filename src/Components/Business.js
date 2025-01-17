@@ -5,7 +5,7 @@ const business = {
     name:"Jocelyn's Fine Kitchen",
     address:"Home Street 55",
     city:"Berlin",
-    country:"Germany",
+    state:"Germany",
     zipcode:"12345",
     category:"Tapas",
     rating:4.9,
