@@ -1,0 +1,16 @@
+/* Beispiel für css */
+.business {
+    border: 1px solid #ccc;
+    padding: 10px;
+  }
+  
+  .business-name {
+    font-size: 20px;
+    color: #333;
+  }
+  
+  .business-address {
+    font-size: 16px;
+    color: #666;
+  }
+  
