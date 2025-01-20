@@ -1,7 +1,12 @@
 /* Beispiel für css */
 .business {
-    border: 1px solid #ccc;
-    padding: 10px;
+  
+  border: 1px solid #ccc;
+  padding: 10px;
+  width: 400px;
+  /* display: flex;
+  justify-content: center;
+  align-items: space-between; */
   }
   
   .business-name {
@@ -12,5 +17,9 @@
   .business-address {
     font-size: 16px;
     color: #666;
+  }
+
+  .business-image {
+    width: 300px;
   }
   

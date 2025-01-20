@@ -1,0 +1,15 @@
+.form {
+   
+    text-align: center;
+    margin-top: 2%;
+    line-height: 2;
+}
+
+.radioButtons {
+    width: 500px;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    /* flex-wrap: wrap; */
+    /* flex-basis: auto; */
+}

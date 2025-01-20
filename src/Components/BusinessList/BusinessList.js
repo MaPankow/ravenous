@@ -1,5 +1,6 @@
 import React from 'react';
 import Business from '../Business/Business';
+import './BusinessList.css';
 
 
 
@@ -11,7 +12,7 @@ function BusinessList() {
         <Business key={4} />
     ];
     return (
-        <div>{listItems}</div>
+        <div className="listItems">{listItems}</div>
     );
 }
 

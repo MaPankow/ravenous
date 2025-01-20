@@ -1,12 +1,11 @@
 import React from 'react';
-import './Business.css'; // css importieren und den divs classNames geben, die dann in css umgestylt werden können
-
+import './Business.css'; 
 const business = {
     image:"/img/pexels-chan_walrus-941861.jpg",
     name:"Jocelyn's Fine Kitchen",
     address:"Home Street 55",
-    city:"Berlin",
-    state:"Germany",
+    city:"New York City",
+    state:"New York (bestimmt nicht)",
     zipcode:"12345",
     category:"Tapas",
     rating:4.9,
@@ -23,7 +22,8 @@ function Business () {
             </div>
             <div className="business-address">
                 <p>{business.address}</p>
-                <p>{business.zipcode} {business.city}</p>
+                <p>{business.zipcode} {business.city} </p>
+                <p>{business.state}</p>
             </div>
             <div className="business-statistics">
                 <p>Average rating: {business.rating}</p>

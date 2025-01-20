@@ -1,0 +1,14 @@
+.listItems {
+    display: grid;
+    width: 300px;
+    grid-template-columns: 1fr 1fr 1fr;
+    align-items: center;
+    justify-content: center; 
+    margin: 0 auto; 
+}
+
+@media (max-width: 600px) {
+    .listItems {
+        grid-template-columns: 1fr; 
+    }
+}
