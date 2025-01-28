@@ -4,15 +4,13 @@ import './BusinessList.css';
 
 
 
-function BusinessList() {
-    const listItems= [
-        <Business key={1} />,
-        <Business key={2} />,
-        <Business key={3} />,
-        <Business key={4} />
-    ];
+function BusinessList(props) {
     return (
-        <div className="listItems">{listItems}</div>
+    <div className="listItems" >
+        {props.businesses.map((business, index) =>
+        <Business key={index} business = {business} />
+        )}
+    </div>
     );
 }
 
