@@ -1,29 +1,37 @@
-import React from 'react';
+import React, {useState} from 'react';
 import './SearchBar.css';
 
 function SearchBar () {
+    const [category, setCategory] = useState('');
+    const [location, setLocation] = useState('');
+    const [sortBy, setSortBy] = useState('');
+
+    // const handleRadio = (e) => {
+    //     const onClick = t
+    // }
+
     
     return (
         <div>
             <form className="form" action="">
                 <div className="radioButtons">
                     <div>
+                        <input type="radio" id="best_match" name="sortBy" />
                         <label htmlFor="best_match">Best match</label>
-                        <input type="radio" id="best_match" name="sort_by" />
                     </div>
                     <div>
+                        <input type="radio" id="rating" name="sortBy" />
                         <label htmlFor="rating"> Highest rated</label>
-                        <input type="radio" id="rating" name="sort_by" />
                     </div>
                     <div>
+                        <input type="radio" id="review_count" name="sortBy" />
                         <label htmlFor="review_count"> Most reviewed</label>
-                        <input type="radio" id="review_count" name="sort_by" />
                     </div>
                 </div>
                 <div className="inputFields">
-                    <label for="category">Search business category: </label>
+                    <label htmlFor="category">Search business category: </label>
                     <input type="text" id="category" /><br />
-                    <label for="location">City: </label>
+                    <label htmlFor="location">City: </label>
                     <input type="text" id="location" />
                 </div>
                 <div>
