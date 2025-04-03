@@ -2,7 +2,7 @@ import './App.css';
 
 import BusinessList from './Components/BusinessList/BusinessList.js';
 import SearchBar from './Components/SearchBar/SearchBar.js';
-
+import searchBusinesses from './utils/API.js';
 
 
 
@@ -27,6 +27,19 @@ function App() {
     businesses.push({...business, id: i});
   }
   
+
+
+  const testSearch = async () => {
+      try {
+          const businesses = await searchBusinesses('Korean', 'New York City', 'best_match');
+          console.log(businesses);
+      } catch (error) {
+          console.error(error);
+      }
+  };
+  
+  testSearch();
+  
   
   return (
     <div className="App">
@@ -39,4 +52,7 @@ function App() {
   );
 }
 
+
 export default App;
+
+

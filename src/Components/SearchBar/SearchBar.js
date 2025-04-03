@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import './SearchBar.css';
 
 function SearchBar () {
-    const [category, setCategory] = useState('');
+    const [term, setTerm] = useState('');
     const [location, setLocation] = useState('');
     const [sortBy, setSortBy] = useState('');
 
@@ -10,8 +10,8 @@ function SearchBar () {
         setSortBy(e.target.value);
     }
 
-    const handleCategory = (e) => {
-        setCategory(e.target.value);
+    const handleTerm = (e) => {
+        setTerm(e.target.value);
     }
 
     const handleLocation = (e) => {
@@ -20,28 +20,12 @@ function SearchBar () {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        const input = [category, location, sortBy];
+        const input = [term, location, sortBy];
         const [val1, val2, val3] = input;
 
         console.log("Searching Yelp with " + val1 + ", " + val2 + ", " + val3);
     }
-/*
-Beispiele destructuring:
-const fruits = ['apple', 'banana', 'cherry'];
-const [first, second, third] = fruits;
 
-console.log(first); // 'apple'
-console.log(second); // 'banana'
-console.log(third); // 'cherry'
-
-
-const person = { name: 'Alice', age: 25, city: 'New York' };
-const { name, age, city } = person;
-
-console.log(name); // 'Alice'
-console.log(age); // 25
-console.log(city); // 'New York'
-*/
     
     return (
         <div>
@@ -61,8 +45,8 @@ console.log(city); // 'New York'
                     </div>
                 </div>
                 <div className="inputFields">
-                    <label htmlFor="category">Search business category: </label>
-                    <input type="text" id="category" onChange={handleCategory} />
+                    <label htmlFor="term">Search business category: </label>
+                    <input type="text" id="term" onChange={handleTerm} />
                     <br />
                     <label htmlFor="location">City: </label>
                     <input type="text" id="location" onChange={handleLocation} />
