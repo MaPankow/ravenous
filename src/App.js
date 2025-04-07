@@ -1,5 +1,5 @@
 import './App.css';
-
+import React, {useState, useEffect} from 'react';
 import BusinessList from './Components/BusinessList/BusinessList.js';
 import SearchBar from './Components/SearchBar/SearchBar.js';
 import searchBusinesses from './utils/API.js';
@@ -7,39 +7,34 @@ import searchBusinesses from './utils/API.js';
 
 
 function App() {
-
-  const business = {
-    id: 1,
-    image:"/img/pexels-chan_walrus-941861.jpg",
-    name:"Jocelyn's Fine Kitchen",
-    address:"Home Street 55",
-    city:"New York City",
-    state:"New York",
-    zipcode:"12345",
-    category:"Tapas",
-    rating:4.9,
-    reviewCount:25
-  }
-
-  const businesses = [];
-
-  for (let i=0; i<6; i++) {
-    businesses.push({...business, id: i});
-  }
   
-
-
-  const testSearch = async () => {
-      try {
-          const businesses = await searchBusinesses('Korean', 'New York City', 'best_match');
-          console.log(businesses);
-      } catch (error) {
-          console.error(error);
-      }
-  };
+    const [businesses, setBusinesses] = useState([]);
   
-  testSearch();
-  
+    useEffect(() =>{
+      const fetchData = async () => {
+        const businessData = await searchBusinesses();
+
+        const transformedBusinesses = businessData.map(business => ({
+          id: business.id,
+          image: business.imageSrc,
+          name: business.name,
+          address: business.address,
+          city: business.city,
+          state: business.state,
+          zipcode: business.zipcode,
+          category: business.category,
+          rating:business.rating,
+          reviewCount:business.reviewCount
+        }));
+
+        setBusinesses(transformedBusinesses);
+      };
+
+      fetchData();
+    }, []);
+    
+
+    
   
   return (
     <div className="App">
