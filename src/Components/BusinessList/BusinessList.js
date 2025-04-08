@@ -4,15 +4,6 @@ import './BusinessList.css';
 
 
 
-// function BusinessList(props) {
-//     return (
-//     <div className="listItems" >
-//         {props.businesses.map((business, index) =>
-//         <Business key={index} business = {business} />
-//         )}
-//     </div>
-//     );
-// }
 
 
 function BusinessList(props) {

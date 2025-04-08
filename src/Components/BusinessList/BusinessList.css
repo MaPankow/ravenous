@@ -1,10 +1,17 @@
 .listItems {
     display: grid;
-    width: 300px;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: repeat(3, 1fr);
     align-items: center;
     justify-content: center; 
     margin: 0 auto; 
+    max-width: 100%;
+    box-sizing: border-box
+}
+
+@media (max-width: 900px) {
+    .listItems {
+        grid-template-columns: repeat(2, 1fr); 
+    }
 }
 
 @media (max-width: 600px) {

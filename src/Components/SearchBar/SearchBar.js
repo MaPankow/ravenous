@@ -1,7 +1,8 @@
 import React, {useState} from 'react';
 import './SearchBar.css';
+import searchBusinesses from '../../utils/API';
 
-function SearchBar () {
+function SearchBar ({ setBusinesses }) {
     const [term, setTerm] = useState('');
     const [location, setLocation] = useState('');
     const [sortBy, setSortBy] = useState('');
@@ -18,13 +19,16 @@ function SearchBar () {
         setLocation(e.target.value);
     }
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        const input = [term, location, sortBy];
-        const [val1, val2, val3] = input;
-
-        console.log("Searching Yelp with " + val1 + ", " + val2 + ", " + val3);
-    }
+        try {
+            const results = await searchBusinesses(term, location, sortBy);
+            console.log("results:", results);
+            setBusinesses(results);    
+        } catch (error) {
+            console.error("Error fetching data:", error);
+        }          
+    };
 
     
     return (
