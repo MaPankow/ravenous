@@ -50,10 +50,10 @@ function SearchBar ({ setBusinesses }) {
                     </div>
                 </div>
                 <div className="inputFields">
-                    <label htmlFor="term">Search business category: </label>
+                    <label htmlFor="term">Search terms: </label>
                     <input type="text" id="term" onChange={handleTerm} />
                     <br />
-                    <label htmlFor="location">City: </label>
+                    <label htmlFor="location">Location: </label>
                     <input type="text" id="location" onChange={handleLocation} />
                 </div>
                 <div>

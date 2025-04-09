@@ -1,11 +1,11 @@
 .listItems {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
     align-items: center;
     justify-content: center; 
     margin: 0 auto; 
     max-width: 100%;
-    box-sizing: border-box
+    box-sizing: border-box;
 }
 
 @media (max-width: 900px) {

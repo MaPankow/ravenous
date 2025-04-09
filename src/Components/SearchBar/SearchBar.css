@@ -1,13 +1,32 @@
 .form {
-   
+    font-size: 20px;
     text-align: center;
     margin-top: 2%;
     line-height: 2;
 }
 
 .radioButtons {
-    width: 500px;
+    width: 100%;
+    max-width: 600px;
     margin: auto;
     display: flex;
     justify-content: space-between;
+    padding: 10px;
+}
+
+input[type="text"], input[type="submit"] {
+    font-size: 20px;
+    padding: 2px; 
+    margin: 10px 0; 
+}
+
+input[type="submit"] {
+    cursor: pointer; 
+    padding: 5px
+}
+
+input[type="radio"] {
+    cursor: pointer;
+    transform: scale(1.5); 
+    margin: 10px; 
 }
