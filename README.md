@@ -2,7 +2,7 @@
 
 Dieses Projekt gehört zu einem Skill Path auf codecademy. Ziel ist es, eine Frontend-App mit React zu bauen und dabei die Kenntnisse anzuwenden, die in Lektionen und kleineren Projekten vermittelt werden.
 
-Ravenous ist eine App, die Restaurants empfiehlt. Dabei greift sie auf die Yelp-API zu und gibt Suchparameter weiter, die auf dem UI eingegeben werden. Anhand dieser werden passende Restaurants aufgeslistet.
+Ravenous ist eine App, die Restaurants empfiehlt. Dabei greift sie auf die Yelp-API zu und gibt Suchparameter weiter, die auf dem UI eingegeben werden. Anhand dieser werden passende Restaurants aufgelistet.
 
 ## Tech-Stack
 HTML, CSS, JavaScript und React als Tech-Stack.
@@ -12,32 +12,32 @@ HTML, CSS, JavaScript und React als Tech-Stack.
 Node habe ich bereits installiert. Also lege ich ein neues Projekt mittels npx create-react-app an. 
 
 ## API-Key, .env und .gitignore
-Um mit der API kommunizieren zu können, muss man sich bei Yelp anmelden und einen persönlichen API-Key besorgen. Dieser darf nicht öffentlich preisgegeben werden. Ich speichere ihn deswegen in einer .env-Datei und rufe ihn in API.js aus der Datei auf. Die .env-Datei wird in der .gitignore-Datei aufgelistet und dadurch von git ignoriert und nicht bei GitHub angezeigt.
+Um mit der API kommunizieren zu können, muss man sich bei Yelp anmelden und einen persönlichen API-Key erhalten. Dieser API-Key wird in der .env-Datei gespeichert, um sicherzustellen, dass er nicht versehentlich öffentlich gemacht wird, und in der Datei API.js abgerufen, um Anfragen an die Yelp-API zu senden. Die .env-Datei wird in der .gitignore-Datei aufgelistet und dadurch von git ignoriert und nicht bei GitHub angezeigt.
 
 ## Funktionsweise
 In der Komponente App.js werden SearchBar.js und BusinessList.js wiedergegeben. Außerdem importiert sie (ein derzeit zugegeben sehr einfach gehaltenes) Styling aus App.css
 
 ### Komponente SearchBar.js
-Was auf der Startseite zu sehen ist, stammt aus der Komponente SearchBar.js. Sie empfängt props von App.js und die Funktion wird von App.js importiert. 
-SearchBar.js enthält die Logik für das Suchformular. Sie stellt das Formular und nimmt die eingetragenen Daten der User entgegen. Diese gibt sie an das Modul API.js weiter.
+Was auf der Startseite zunächst zu sehen ist, wird durch die  Komponente SearchBar.js gerendert. Diese empfängt props (Daten oder Funktionen) von App.js und wird von App.js importiert. 
+SearchBar.js stellt das Suchformular bereit und sendet die Benutzereingaben über eine Funktion zurück an App.js.
 
 ### utils/API.js
 API.js ist das Modul, das mit der Yelp-API kommuniziert. Es sendet eine Suchanfrage mit den Parametern, die in der Search Bar eingegeben wurden und holt die entsprechenden Ergebnisse. Diese nimmt SearchBar.js entgegen.
 
 ### Komponente Business.js
-Business.js nimmmt props von App.js entgegen und die Logik legt fest, welche der abgeholten Daten von je einem Business angezeigt werden.
+Business.js nimmt props von App.js entgegen und die Logik legt fest, welche der abgeholten Daten von je einem Business angezeigt werden.
 
 ### Komponente BusinessList.js
-Diese Komponente importiert Business.js und zeigt alle abgeholten Businesses nach dem vorgegebenen Shema an
+Diese Komponente importiert Business.js und zeigt alle abgeholten Businesses nach dem in Business.js vorgegebenen Schema an.
 
 ### Styling mit CSS
-Die Komponenten befinden sich jeweils in Ordnern, mit einer gleichnamigen CSS-Datei, die für die einzelnen Komponenten das Styling festlegt. So legt Business.css fest, wie das Bild und die Adressdaten eines Businesses im Container angezeigt werden und BusinessList.js legt fest, wie die einzelnen Businesses angeordnet werden, wie das Verhalten auf kleineren Bildschirmen ist etc.
+Die Komponenten befinden sich jeweils in Ordnern, mit einer gleichnamigen CSS-Datei, die für die jeweilige Komponente das Styling festlegt. Zum Beispiel definiert Business.css das Layout für das Business-Bild und die Adressdaten, während BusinessList.css das Styling für die gesamte Liste von Businesses bestimmt und die Layouts für unterschiedliche Bildschirmgrößen berücksichtigt.
 
 ### CORS-Problematik
-Es kann passieren, dass man den Entwicklungsserver satrtet und eine Fehlermeldung im Browser bekommt, nachdem man die Suchparameter eingibt. Das Problem kann folgendermaßen umgangen werden:
+Es kann passieren, dass du den Entwicklungsserver startest und eine Fehlermeldung im Browser bekommst, nachdem du die Suchparameter eingibst. Dies kann ein Problem mit CORS (Cross-Origin Resource Sharing) sein. CORS verhindert, dass deine Anwendung Daten von einer anderen Domain anfordert. Um diese Einschränkung während der Entwicklung zu umgehen, kannst du einen CORS-Proxy verwenden, wie er in den folgenden Schritten beschrieben wird.
 1. https://cors-anywhere.herokuapp.com/corsdemo aufrufen,
 2. "Request temporary access to the demo server" anklicken
 3. Entwicklungsserver stoppen und erneut starten
-Die Erlaubnis ist temporär, sollte sie abgelaufen sein, einfach die Schritte wiederholen.
+Die Erlaubnis ist temporär; sollte sie abgelaufen sein, wiederhole einfach die Schritte.
 
 
