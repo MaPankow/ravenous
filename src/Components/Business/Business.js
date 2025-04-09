@@ -12,13 +12,12 @@ function Business (props) {
                 <p>Category: {business.category}</p>   
             </div>
             <div className="business-address">
-                <p>{business.address}</p>
-                <p>{business.zipcode} {business.city} </p>
-                <p>{business.state}</p>
+                <p>{business.location.address1}, {business.location.city}</p>
+                <p>{business.location.state} {business.location.zip_code} </p>
             </div>
             <div className="business-statistics">
                 <p>Average rating: {business.rating}</p>
-                <p>Reviews: {business.reviewCount}</p>
+                <p>Reviews: {business.review_count}</p>
             </div>
         </div>
     );
