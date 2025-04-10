@@ -43,7 +43,7 @@ Die Erlaubnis ist temporär; sollte sie abgelaufen sein, wiederhole einfach die 
 ## Weitere Funktionen
 Die Grundfunktion der App steht nun, in dem Projekt des Skill Paths werden weitere optionale Aufgaben gestellt. Diese möchte ich natürlich auch bearbeiten.
 
-### Adressen klickbar machen und mit Referenz zu Google Maps hinterlegen 
+### 1. Adressen klickbar machen und mit Referenz zu Google Maps hinterlegen 
 Man soll die Adresse anklicken können und es soll sich ein weiteres Fenster mit Google Maps öffnen, in dem die Adresse angezeigt wird. Zuerst habe ich herausgefunden, dass das Ganze ohne Anbindung einer weiteren API funktioniert. Es soll wie eine normale Suche bei Google Maps funktionieren.
 
 Zunächst überlegte ich, eine eigene Komponente zu erstellen, doch es macht sich besser, in das JSX von Business.js direkt den Link zu Google Maps einzufügen.
@@ -57,8 +57,16 @@ Die beiden <p>-Tags, die Adressdaten enthalten, setze ich in ein <a href>-Tag, d
 - target="_blank" öffnet ein neues Fenster
 - rel="noopener noreferrer" verhindert, dass das neue Fenster Zugriff auf das Ursprungsfenster hat.
 
-### Bilder zur Webseite des Restaurants verlinken
+### 2. Bilder zur Webseite des Restaurants verlinken
 Zunächst habe ich die Bilder in Business.js wieder in ein <a href>-Tag gepackt und die url genommen, die die API ausspielt. Dann habe ich mit Attributen im JSX dafür gesorgt, dass ein neuer Tab aufgeht.
 Beim Testen wurde mir klar, dass der Link zum Eintrag in der Yelp-Api führt. Darüber wäre dann die Website erreichbar. In der Aufgabe steht nicht direkt drin, dass es die Yelp-Seite sein kann, allerdings haben nicht alle Restaurants eine eigene Website, also belasse ich es jetzt dabei.
 #### Komponente WebsiteLink
 Zunächst rechnete ich damit, dass das Ganze komplizierter wird. Der Code in Business.js nicht zu überfrachtet wird, habe ich eine weitere Komponente eingebaut und mit Business.js verknüpft. Aber gut, das ist ein Schritt, den man auch mal üben kann.
+
+### 3. Eine neue Anfrage an die Yelp-API soll automatisch gestratet werden, sobald man einen anderen Auswahlfillter anklickt
+In SearchBar.js sind die Auswahlfilter als Radio Buttons festgelegt. 
+
+#### If-Else für SearchBar.js
+Bei verschiedenen Versuchen, die Aufgabe zu lösen, fiel mir auf, dass der Browser eine Fehlermeldung zeigt, wenn Felder leer gelassen wurden. Hierfür implementierte ich ein Conditional statement, das einen alert rausgibt und Funktion verlässt, d. h. die Suchanfrage abbricht.
+#### Erweiterung der handleRadio-Funktion
+... um ein Conditional Statement, das eine erneute Anfrage nur dann auslöst, wenn die beiden anderen Felder ausgefüllt sind und businesses da sind (das Array länger als 0 ist), sprich: wenn bereits Ergebnisse angezeigt werden. 

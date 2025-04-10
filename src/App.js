@@ -15,7 +15,7 @@ function App() {
       <div className='Heading'>
         <h1>Ravenous</h1>
       </div>
-      <SearchBar setBusinesses={setBusinesses} />
+      <SearchBar setBusinesses={setBusinesses} businesses={businesses} />
       <BusinessList businesses={businesses} />
     </div>
   );
