@@ -23,6 +23,6 @@ const searchBusinesses = async (term, location, sortBy) => {
     catch (error){
         console.log(error);
     };
-}
+};
 
 export default searchBusinesses;

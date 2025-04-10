@@ -59,6 +59,6 @@ Die beiden <p>-Tags, die Adressdaten enthalten, setze ich in ein <a href>-Tag, d
 
 ### Bilder zur Webseite des Restaurants verlinken
 Zunächst habe ich die Bilder in Business.js wieder in ein <a href>-Tag gepackt und die url genommen, die die API ausspielt. Dann habe ich mit Attributen im JSX dafür gesorgt, dass ein neuer Tab aufgeht.
-Beim Testen wurde mir klar, dass der Link zum Eintrag in der Yelp-Api führt. So ganz direkt rückt die Yelp-Api nicht mit der Info raus, es scheint, dass man noch eine zweite Anfrage starten muss.
+Beim Testen wurde mir klar, dass der Link zum Eintrag in der Yelp-Api führt. Darüber wäre dann die Website erreichbar. In der Aufgabe steht nicht direkt drin, dass es die Yelp-Seite sein kann, allerdings haben nicht alle Restaurants eine eigene Website, also belasse ich es jetzt dabei.
 #### Komponente WebsiteLink
-Damit der Code in Business.js nicht zu überfrachtet wird, habe ich eine weitere Komponente eingebaut und mit Business.js verknüpft.
+Zunächst rechnete ich damit, dass das Ganze komplizierter wird. Der Code in Business.js nicht zu überfrachtet wird, habe ich eine weitere Komponente eingebaut und mit Business.js verknüpft. Aber gut, das ist ein Schritt, den man auch mal üben kann.

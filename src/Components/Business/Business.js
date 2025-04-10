@@ -1,6 +1,6 @@
 import React from 'react';
 import './Business.css'; 
-import WebsiteLink from '../WebsiteLink/WebisteLink';
+import WebsiteLink from '../WebsiteLink/WebsiteLink';
 
 
 function Business (props) {
