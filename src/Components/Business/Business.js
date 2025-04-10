@@ -4,6 +4,9 @@ import './Business.css';
 
 function Business (props) {
     const { business } = props;
+    const encodedAddress = encodeURIComponent(business.location.display_address);
+    const mapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodedAddress}`;
+
     return (
         <div className='business'> 
             <img className='business-image' src={business.image_url} alt={business.name} />
@@ -12,8 +15,10 @@ function Business (props) {
                 <p>Category: {business.category}</p>   
             </div>
             <div className="business-address">
-                <p>{business.location.address1}, {business.location.city}</p>
-                <p>{business.location.state} {business.location.zip_code} </p>
+                <a href={mapsUrl} target="_blank" rel="noopener noreferrer">
+                    <p>{business.location.address1}, {business.location.city}</p>
+                    <p>{business.location.state} {business.location.zip_code} </p>
+                </a>
             </div>
             <div className="business-statistics">
                 <p>Average rating: {business.rating}</p>

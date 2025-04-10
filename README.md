@@ -33,11 +33,26 @@ Diese Komponente importiert Business.js und zeigt alle abgeholten Businesses nac
 ### Styling mit CSS
 Die Komponenten befinden sich jeweils in Ordnern, mit einer gleichnamigen CSS-Datei, die für die jeweilige Komponente das Styling festlegt. Zum Beispiel definiert Business.css das Layout für das Business-Bild und die Adressdaten, während BusinessList.css das Styling für die gesamte Liste von Businesses bestimmt und die Layouts für unterschiedliche Bildschirmgrößen berücksichtigt.
 
-### CORS-Problematik
+## CORS-Problematik
 Es kann passieren, dass du den Entwicklungsserver startest und eine Fehlermeldung im Browser bekommst, nachdem du die Suchparameter eingibst. Dies kann ein Problem mit CORS (Cross-Origin Resource Sharing) sein. CORS verhindert, dass deine Anwendung Daten von einer anderen Domain anfordert. Um diese Einschränkung während der Entwicklung zu umgehen, kannst du einen CORS-Proxy verwenden, wie er in den folgenden Schritten beschrieben wird.
 1. https://cors-anywhere.herokuapp.com/corsdemo aufrufen,
 2. "Request temporary access to the demo server" anklicken
-3. Entwicklungsserver stoppen und erneut starten
+3. Entwicklungsserver stoppen und erneut starten (eventuell reicht es auch, das Browserfenster neu zu laden)
 Die Erlaubnis ist temporär; sollte sie abgelaufen sein, wiederhole einfach die Schritte.
 
+## Weitere Funktionen
+Die Grundfunktion der App steht nun, in dem Projekt des Skill Paths werden weitere optionale Aufgaben gestellt. Diese möchte ich natürlich auch bearbeiten.
 
+### Adressen klickbar machen und mit Referenz zu Google Maps hinterlegen 
+Man soll die Adresse anklicken können und es soll sich ein weiteres Fenster mit Google Maps öffnen, in dem die Adresse angezeigt wird. Zuerst habe ich herausgefunden, dass das Ganze ohne Anbindung einer weiteren API funktioniert. Es soll wie eine normale Suche bei Google Maps funktionieren.
+
+Zunächst überlegte ich, eine eigene Komponente zu erstellen, doch es macht sich besser, in das JSX von Business.js direkt den Link zu Google Maps einzufügen.
+
+#### Query erstellen
+Die Konstante encodedAddress soll die spezifische Adresse an die URL von Google Maps anhängen. encodedURIComponent sorgt dafür, dass die Sonderzeichen und Lücken richtig codiert werden. In die Klammern setze display_address, das alle Adressdaten in einem Array enthält. Beim Testen mit console.log merke ich, dass das Array aufgelöst und in die URL codiert wird.
+Ich erstelle außerdem die Konstante mapsUrl, die den Query-String für Google Maps enthält, an den ich encodedAddress anfüge.
+
+#### Link in JSX einfügen
+Die beiden <p>-Tags, die Adressdaten enthalten, setze ich in ein <a href>-Tag, das auf {mapsUrl} verweist und noch zwei weitere Attribute hat:
+- target="_blank" öffnet ein neues Fenster
+- rel="noopener noreferrer" verhindert, dass das neue Fenster Zugriff auf das Ursprungsfenster hat.
