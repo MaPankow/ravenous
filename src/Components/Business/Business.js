@@ -1,5 +1,6 @@
 import React from 'react';
 import './Business.css'; 
+import WebsiteLink from '../WebsiteLink/WebisteLink';
 
 
 function Business (props) {
@@ -9,7 +10,7 @@ function Business (props) {
 
     return (
         <div className='business'> 
-            <img className='business-image' src={business.image_url} alt={business.name} />
+            <WebsiteLink business={business}/>
             <h2 className='business-name'>{business.name}</h2>
             <div className='business-category'>
                 <p>Category: {business.category}</p>   

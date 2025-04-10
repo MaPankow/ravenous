@@ -56,3 +56,9 @@ Ich erstelle außerdem die Konstante mapsUrl, die den Query-String für Google M
 Die beiden <p>-Tags, die Adressdaten enthalten, setze ich in ein <a href>-Tag, das auf {mapsUrl} verweist und noch zwei weitere Attribute hat:
 - target="_blank" öffnet ein neues Fenster
 - rel="noopener noreferrer" verhindert, dass das neue Fenster Zugriff auf das Ursprungsfenster hat.
+
+### Bilder zur Webseite des Restaurants verlinken
+Zunächst habe ich die Bilder in Business.js wieder in ein <a href>-Tag gepackt und die url genommen, die die API ausspielt. Dann habe ich mit Attributen im JSX dafür gesorgt, dass ein neuer Tab aufgeht.
+Beim Testen wurde mir klar, dass der Link zum Eintrag in der Yelp-Api führt. So ganz direkt rückt die Yelp-Api nicht mit der Info raus, es scheint, dass man noch eine zweite Anfrage starten muss.
+#### Komponente WebsiteLink
+Damit der Code in Business.js nicht zu überfrachtet wird, habe ich eine weitere Komponente eingebaut und mit Business.js verknüpft.

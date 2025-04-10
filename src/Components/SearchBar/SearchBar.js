@@ -23,7 +23,7 @@ function SearchBar ({ setBusinesses }) {
         e.preventDefault();
         try {
             const results = await searchBusinesses(term, location, sortBy);
-            // console.log("results:", results);
+            console.log("results:", results);
             // der Log war zunächst zum Debuggen hilfreich, kann aber auch einkommentiert werden, wenn man mal schnell die richitgen Keys aus der API wissen will
             setBusinesses(results);    
         } catch (error) {
