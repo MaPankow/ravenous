@@ -2,7 +2,7 @@ import './App.css';
 import React, {useState} from 'react';
 import BusinessList from './Components/BusinessList/BusinessList.js';
 import SearchBar from './Components/SearchBar/SearchBar.js';
-import searchBusinesses from './utils/API.js';
+
 
 
 

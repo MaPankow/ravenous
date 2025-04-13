@@ -70,3 +70,6 @@ In SearchBar.js sind die Auswahlfilter als Radio Buttons festgelegt.
 Bei verschiedenen Versuchen, die Aufgabe zu lösen, fiel mir auf, dass der Browser eine Fehlermeldung zeigt, wenn Felder leer gelassen wurden. Hierfür implementierte ich ein Conditional statement, das einen alert rausgibt und Funktion verlässt, d. h. die Suchanfrage abbricht.
 #### Erweiterung der handleRadio-Funktion
 ... um ein Conditional Statement, das eine erneute Anfrage nur dann auslöst, wenn die beiden anderen Felder ausgefüllt sind und businesses da sind (das Array länger als 0 ist), sprich: wenn bereits Ergebnisse angezeigt werden. 
+
+### 4. Eine neue Sortieroption hinzufügen
+In der Übung wird vorgeschlagen, in der Nähe eines bestimmten Ortes zu suchen. Dafür würde ich ein weiteres Sucheld für Postleitzahlen einsetzen.

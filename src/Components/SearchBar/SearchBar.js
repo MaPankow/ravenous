@@ -7,6 +7,7 @@ function SearchBar ({ setBusinesses, businesses }) {
     const [term, setTerm] = useState('');
     const [location, setLocation] = useState('');
     const [sortBy, setSortBy] = useState('');
+    const [distance, setDistance] = useState('');
 
 
     const handleRadio = async (e) => {
@@ -34,11 +35,18 @@ function SearchBar ({ setBusinesses, businesses }) {
         if (term !== '' && location !== '' && sortBy !== '') {
             try {
                 const results = await searchBusinesses(term, location, sortBy);
-                // console.log("results:", results);
+                console.log("results:", results);
                 // der Log war zunächst zum Debuggen hilfreich, kann aber auch einkommentiert werden, wenn man mal schnell die richitgen Keys aus der API wissen will
-                setBusinesses(results);    
+
+                
+                if (results.length === 0) {
+                    alert("No businesses found for the secified data");
+                } else {
+                    setBusinesses(results); 
+                }
             } catch (error) {
                 console.error("Error fetching data:", error);
+                alert("An error occured while fetching data. Please try again.")
             }   
         } else {
             alert('Please fill in all the fields!');
@@ -69,7 +77,7 @@ function SearchBar ({ setBusinesses, businesses }) {
                     <label htmlFor="term">Search terms: </label>
                     <input type="text" id="term" onChange={handleTerm} />
                     <br />
-                    <label htmlFor="location">Location: </label>
+                    <label htmlFor="location">Place: </label>
                     <input type="text" id="location" onChange={handleLocation} />
                 </div>
                 <div>
