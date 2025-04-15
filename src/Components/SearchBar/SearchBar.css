@@ -14,6 +14,7 @@
     padding: 10px;
 }
 
+
 input[type="text"], input[type="submit"] {
     font-size: 20px;
     padding: 2px; 
@@ -30,3 +31,26 @@ input[type="radio"] {
     transform: scale(1.5); 
     margin: 10px; 
 }
+
+.suggestions-dropdown {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    max-height: 150px;
+    overflow-y: auto;
+    
+    background-color: white;
+    color: grey;
+    width: 100%;
+    z-index: 1000;
+}
+
+.suggestions-dropdown li {
+    padding: 8px;
+    cursor: pointer;
+}
+
+.suggestions-dropdown li:hover {
+    background-color: lightgray;
+}
+

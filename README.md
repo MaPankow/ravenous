@@ -82,3 +82,5 @@ Die Ergebnisse werden weiterhin nach den Radio Buttons gefiltert, sodass nicht u
 
 ### 5. Der Enterknopf soll eine Suche auslösen, ohne dass man Search drücken muss
 Hierfür brauchte ich nur einen neuen Event Handler, der die Funktion, die bei onSubmit ausgeführt wird, ausführt, wenn der event key (in meinem Fall e.key) "Enter" ist. Dazu kommt ein Event Listener namens onKeyDown, der die Funktion auslöst.
+
+### 6. Autovervollständigung in der Location-Zeile

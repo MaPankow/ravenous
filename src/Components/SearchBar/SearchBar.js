@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import './SearchBar.css';
 import searchBusinesses from '../../utils/API';
+import getAutocompletion from '../../utils/nominatim';
 
 
 function SearchBar ({ setBusinesses, businesses }) {
@@ -8,6 +9,7 @@ function SearchBar ({ setBusinesses, businesses }) {
     const [location, setLocation] = useState('');
     const [sortBy, setSortBy] = useState('');
     const [zip_code, setZip_code] = useState('');
+    const [suggestions, setSuggestions] = useState([]);
 
 
 
@@ -35,13 +37,26 @@ function SearchBar ({ setBusinesses, businesses }) {
         setTerm(e.target.value);
     };
 
-    const handleLocation = (e) => {
-        setLocation(e.target.value);
+    const handleLocation = async (e) => {
+        const value = e.target.value;
+        setLocation(value);
+        if (value) {
+            const results = await getAutocompletion(value);
+            setSuggestions(results);
+        } else {
+            setSuggestions([]);
+        }
+    };
+
+    const handleSuggestionClick = (suggestion) => {
+        setLocation(suggestion.display_name);
+        setSuggestions([]);
     };
 
     const handleZip_code = async (e) => {
         setZip_code(e.target.value);
-    }
+    };
+
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -129,8 +144,19 @@ function SearchBar ({ setBusinesses, businesses }) {
                     <label htmlFor="term">Search terms: </label>
                     <input type="text" id="term" onChange={handleTerm} />
                     <br />
-                    <label htmlFor="location">Place: </label>
-                    <input type="text" id="location" onChange={handleLocation} />
+                    <div>
+                        <label htmlFor="location">Place: </label>
+                        <input type="text" id="location" value={location} onChange={handleLocation} />
+                        <ul className='suggestions-dropdown'>
+                            {suggestions.map((suggestion) => {
+                                const key= `${suggestion.lat}-${suggestion.lon}`;
+                                return (
+                                    <li key={key} onClick={() => handleSuggestionClick(suggestion)}> {suggestion.display_name}
+                                </li>
+                                );
+                            })}    
+                        </ul>
+                    </div>
                     <label htmlFor="distance"> or ZIP code/postal number: </label>
                     <input type="text" id="distance" onChange={handleZip_code} />
                 </div>
