@@ -79,3 +79,6 @@ Mit dem Ausdruck const searchLocation = zip_code || location; wird der ZIP code 
 Dadurch sucht die API bevorzugt nach der Postleitzahl, d. h., wenn man New York City eingibt, aber eine Berliner Postleitzahl, werden Ergebnisse aus Berlin angezeigt.
 
 Die Ergebnisse werden weiterhin nach den Radio Buttons gefiltert, sodass nicht unbedingt das nächste Restaurant oben steht, sondern z. B. das nächste mit der höchsten Bewertung, wenn das ausgesucht wurde.
+
+### 5. Der Enterknopf soll eine Suche auslösen, ohne dass man Search drücken muss
+Hierfür brauchte ich nur einen neuen Event Handler, der die Funktion, die bei onSubmit ausgeführt wird, ausführt, wenn der event key (in meinem Fall e.key) "Enter" ist. Dazu kommt ein Event Listener namens onKeyDown, der die Funktion auslöst.

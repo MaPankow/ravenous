@@ -73,12 +73,44 @@ function SearchBar ({ setBusinesses, businesses }) {
             }   
         }
 
+    const handleEnter = async (e) => {
+        if (e.key === 'Enter') {
+            e.preventDefault();
+            if (term !== '' && sortBy !== '') {
+                const searchLocation = zip_code || location;
+                if (searchLocation === '') {
+                    alert('Please enter a location or ZIP code!');
+                    return;
+                }
+                
+                try {
+                    const results = await searchBusinesses(term, searchLocation, sortBy);
+                    console.log("results:", results);
+                    // der Log war zunächst zum Debuggen hilfreich, kann aber auch einkommentiert werden, wenn man mal schnell die richitgen Keys aus der API wissen will
+
+                    
+                    if (results.length === 0) {
+                        alert("No businesses found for the secified data");
+                    } else {
+                        setBusinesses(results); 
+                    }
+                } catch (error) {
+                    console.error("Error fetching data:", error);
+                    alert("An error occured while fetching data. Please try again.")
+                    }   
+                } else {
+                    alert('Please fill in all the fields!');
+                    return;
+                }   
+            }
+        }
+
 
 
     
     return (
         <div>
-            <form className="form" action="" onSubmit={handleSubmit}>
+            <form className="form" action="" onSubmit={handleSubmit} onKeyDown={handleEnter}>
                 <div className="radioButtons" >
                     <div>
                         <input type="radio" id="best_match" name="sortBy" value="best_match" onChange={handleRadio} />
