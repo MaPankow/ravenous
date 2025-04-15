@@ -72,4 +72,10 @@ Bei verschiedenen Versuchen, die Aufgabe zu lösen, fiel mir auf, dass der Brows
 ... um ein Conditional Statement, das eine erneute Anfrage nur dann auslöst, wenn die beiden anderen Felder ausgefüllt sind und businesses da sind (das Array länger als 0 ist), sprich: wenn bereits Ergebnisse angezeigt werden. 
 
 ### 4. Eine neue Sortieroption hinzufügen
-In der Übung wird vorgeschlagen, in der Nähe eines bestimmten Ortes zu suchen. Dafür würde ich ein weiteres Sucheld für Postleitzahlen einsetzen.
+In der Übung wird vorgeschlagen, in der Nähe eines bestimmten Ortes zu suchen. Dafür würde ich ein weiteres Suchfeld für Postleitzahlen einsetzen.
+
+In SearchBar.js habe ich die Funktion so geändert, dass die Radio Buttons und Search Term verpflichtend sind und man zwischen Place und ZIP code entscheiden kann (eins von beiden muss gewählt werden).
+Mit dem Ausdruck const searchLocation = zip_code || location; wird der ZIP code bevorzugt, das heißt, entweder soll der ZIP Code als Parameter genutzt werden, wenn es keinen gibt, soll auf location zurückgegriffen werden.
+Dadurch sucht die API bevorzugt nach der Postleitzahl, d. h., wenn man New York City eingibt, aber eine Berliner Postleitzahl, werden Ergebnisse aus Berlin angezeigt.
+
+Die Ergebnisse werden weiterhin nach den Radio Buttons gefiltert, sodass nicht unbedingt das nächste Restaurant oben steht, sondern z. B. das nächste mit der höchsten Bewertung, wenn das ausgesucht wurde.
