@@ -84,3 +84,7 @@ Die Ergebnisse werden weiterhin nach den Radio Buttons gefiltert, sodass nicht u
 Hierfür brauchte ich nur einen neuen Event Handler, der die Funktion, die bei onSubmit ausgeführt wird, ausführt, wenn der event key (in meinem Fall e.key) "Enter" ist. Dazu kommt ein Event Listener namens onKeyDown, der die Funktion auslöst.
 
 ### 6. Autovervollständigung in der Location-Zeile
+Hierfür wurde mir eine Google-Maps-ähnliche API vorgeschlagen, aber der API-Key wäre nur erhältlich, wenn ich ein Bezahlkonto anlege. Das war mir zu unheimlich, also nutzte ich nominatim. Für den Endpoint, der Autovervollständigung ermöglicht, war gar kein API-Key zu erstellen.
+Im Ordner utils ist die Datei nominatim.js, in der sich die Logik für den Zugriff auf den Endpoint befindet.
+Der Rest wird wieder in der SearchBar.js geregelt. Hierfür habe ich die location-Funktion angepasst und ein Dropdown-Menü im JSX ergänzt, in dem die 5 Suchergebnisse angezeigt werden, sobald eine Veränderung in der Inpu-Zeile stattfindet.
+Eine weitere Funktion behandelt den Klick auf eine der Optionen im Dropdown-Menü und trägt diese ein. Von dort aus geht es wie gehabt weiter mit den weitern Feldern und dem Submit-Button. 
